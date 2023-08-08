@@ -1,4 +1,4 @@
-import '$lib/i18n';
+import '$lib/utils/i18n';
 import { waitLocale } from 'svelte-i18n';
 import type { LayoutLoad } from './$types';
 

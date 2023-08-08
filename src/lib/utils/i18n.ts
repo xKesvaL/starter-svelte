@@ -1,5 +1,5 @@
 import { init, register, getLocaleFromNavigator } from 'svelte-i18n';
-import { DEFAULT_LOCALE } from './config';
+import { DEFAULT_LOCALE } from '../config';
 
 register('en', () => import('../lang/en.json'));
 register('fr', () => import('../lang/fr.json'));
