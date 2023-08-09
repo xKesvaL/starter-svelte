@@ -8,7 +8,7 @@
 
 	export let loading: 'lazy' | 'eager' = 'lazy';
 	export let figcaption: string;
-	export let rounding: ThemeSize = 'md';
+	export let rounding: ThemeSize | 'full' = 'md';
 
 	let error = false;
 </script>
@@ -56,6 +56,10 @@
 
 		&.rounding-lg {
 			border-radius: var(--border-radius-4);
+		}
+
+		&.rounding-full {
+			border-radius: 9999px;
 		}
 	}
 

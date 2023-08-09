@@ -2,14 +2,17 @@ export type Locale = 'en' | 'fr';
 
 export interface Brand {
 	name: string;
-	href: string;
+	url: string;
 	logo: BrandLogo;
+	color: BrandColor;
 }
 
 export interface BrandLogo {
 	light: string;
 	dark: string;
 }
+
+type BrandColor = Record<ThemeColor, string>;
 
 export type ThemeColor = 'primary' | 'secondary' | 'accent';
 

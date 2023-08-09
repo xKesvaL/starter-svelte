@@ -4,9 +4,14 @@ export const DEFAULT_LOCALE: Locale = 'en';
 
 export const BRAND: Brand = {
 	name: 'Svelte Starter',
-	href: 'https://starter.kesval.com',
+	url: 'https://starter.kesval.com',
 	logo: {
 		light: '/assets/logo/logo.png',
 		dark: '/assets/logo/logo.png'
+	},
+	color: {
+		primary: '#6c20df',
+		secondary: '#df20b9',
+		accent: '#19b357'
 	}
 };

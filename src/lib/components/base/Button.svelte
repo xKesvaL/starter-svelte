@@ -11,7 +11,7 @@
 
 <svelte:element
 	this={href ? 'a' : 'button'}
-	class="btn btn-{color} btn-{size} btn-{style}"
+	class="btn btn-{color} btn-{size} btn-{style} btn"
 	{type}
 	{disabled}
 >
