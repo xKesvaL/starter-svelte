@@ -5,6 +5,7 @@ export interface Brand {
 	url: string;
 	logo: BrandLogo;
 	color: BrandColor;
+	author: BrandAuthor;
 }
 
 export interface BrandLogo {
@@ -12,7 +13,12 @@ export interface BrandLogo {
 	dark: string;
 }
 
-type BrandColor = Record<ThemeColor, string>;
+export type BrandColor = Record<ThemeColor, string>;
+
+export interface BrandAuthor {
+	name: string;
+	url: string;
+}
 
 export type ThemeColor = 'primary' | 'secondary' | 'accent';
 

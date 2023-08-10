@@ -2,9 +2,13 @@ import type { Locale, Brand } from './types';
 
 export const DEFAULT_LOCALE: Locale = 'en';
 
-export const BRAND: Brand = {
+export const BRAND = {
 	name: 'Svelte Starter',
 	url: 'https://starter.kesval.com',
+	author: {
+		name: 'Kesval',
+		url: 'https://kesval.com'
+	},
 	logo: {
 		light: '/assets/logo/logo.png',
 		dark: '/assets/logo/logo.png'
@@ -14,4 +18,4 @@ export const BRAND: Brand = {
 		secondary: '#df20b9',
 		accent: '#19b357'
 	}
-};
+} as const satisfies Brand;
