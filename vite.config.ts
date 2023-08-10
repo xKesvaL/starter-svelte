@@ -6,6 +6,7 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	resolve: {
 		alias: {
+			$routes: resolve('./src/routes'),
 			$design: resolve('./node_modules/@kesval/design/scss/abstracts')
 		}
 	},
