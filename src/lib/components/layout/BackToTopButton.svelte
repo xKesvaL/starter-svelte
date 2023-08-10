@@ -10,7 +10,7 @@
 	export let dev = false;
 	let scrollY: number;
 	let previousScrollY: number;
-	export let scrollPercentage: number;
+	export let scrollPercentage: number = 0;
 	export let scrollingUp = false;
 	let innerHeight: number;
 	let scrollHeight: number;
