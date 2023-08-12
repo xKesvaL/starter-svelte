@@ -17,7 +17,7 @@
 		"optimize-images:vercel": "image-opti --source .vercel/output/static/<sourceFolder> --target .vercel/output/static/<targetFolder>"
 	},
 	"devDependencies": {
-		"@kesval/design": "^2.2.1",
+		"@kesval/design": "^2.3.1",
 		"@kesval/image": "^0.1.4",
 		"@kesval/image-svelte": "^0.1.4",
 		"@storybook/addon-a11y": "^7.2.2",
