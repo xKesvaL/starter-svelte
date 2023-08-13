@@ -2,7 +2,6 @@
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
 	import BackTopTopButton from './BackToTopButton.svelte';
-	import IconMenu from '$lib/icons/IconMenu.svelte';
 	import type { ArgTypes } from '@storybook/svelte';
 	import type { ComponentProps } from 'svelte';
 
@@ -46,4 +45,6 @@
 	<BackTopTopButton {...args} />
 </Template>
 
-<Story name="Default" let:args />
+<Story name="Default" let:args>
+	<BackTopTopButton {...args} />
+</Story>

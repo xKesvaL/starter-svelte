@@ -18,4 +18,6 @@
 	<HomeHero {...args} />
 </Template>
 
-<Story name="Default" let:args />
+<Story name="Default" let:args>
+	<HomeHero {...args} />
+</Story>

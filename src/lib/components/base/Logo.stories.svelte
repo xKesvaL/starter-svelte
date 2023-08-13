@@ -1,23 +1,23 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
-	import Navigation from './Navigation.svelte';
+	import Logo from './Logo.svelte';
 	import type { ArgTypes } from '@storybook/svelte';
 	import type { ComponentProps } from 'svelte';
 
-	type Story = ComponentProps<Navigation>;
+	type Story = ComponentProps<Logo>;
 
 	const metaArgs: Story = {};
 
 	const argTypes: ArgTypes<Story> = {};
 </script>
 
-<Meta title="Components/Layout/Navigation" component={Navigation} args={metaArgs} {argTypes} />
+<Meta title="Components/Base/Logo" component={Logo} args={metaArgs} {argTypes} />
 
 <Template args={metaArgs} {argTypes} let:args>
-	<Navigation {...args} />
+	<Logo {...args} />
 </Template>
 
 <Story name="Default" let:args>
-	<Navigation {...args} />
+	<Logo {...args} />
 </Story>

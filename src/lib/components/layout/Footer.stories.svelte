@@ -18,4 +18,6 @@
 	<Footer {...args} />
 </Template>
 
-<Story name="Default" let:args />
+<Story name="Default" let:args>
+	<Footer {...args} />
+</Story>

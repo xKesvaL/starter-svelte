@@ -1,7 +1,5 @@
-<div>
-	<h1>Welcome to SvelteKit</h1>
-	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-</div>
+<script>
+	import HomeHero from '$lib/containers/home/HomeHero.svelte';
+</script>
 
-<style lang="scss">
-</style>
+<HomeHero />
