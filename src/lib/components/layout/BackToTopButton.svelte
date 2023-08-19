@@ -69,15 +69,13 @@
 {/if}
 
 <style lang="scss">
-	@use '$design' as *;
-
 	button {
 		position: fixed;
 		display: grid;
 		bottom: 0;
 		right: 0;
 		z-index: 5;
-		border-radius: var(--border-radius-full);
+		border-radius: 9999px;
 		background: transparent;
 
 		&.dev {
@@ -86,22 +84,22 @@
 
 		.inner {
 			backdrop-filter: blur(0.5rem);
-			border-radius: var(--border-radius-full);
+			border-radius: 9999px;
 			grid-column-start: 1;
 			grid-row-start: 1;
 			transition: 0.3s ease-in-out;
 			scale: 0.6;
 			position: relative;
-			background: var(--color-base-200);
+			background: var(--base-200);
 
 			.arrow {
 				position: absolute;
-				top: 1.85rem;
-				left: 1.85rem;
+				top: 1.45rem;
+				left: 1.45rem;
 				z-index: 50;
-				height: var(--size-9);
-				width: var(--size-9);
-				color: var(--color-neutral-900);
+				height: 3.5rem;
+				width: 3.5rem;
+				color: var(--base-900);
 				transition: 0.3s ease-in-out;
 
 				&.down {
@@ -110,7 +108,7 @@
 			}
 
 			svg {
-				fill: var(--color-base-200);
+				fill: var(--base-200);
 				fill-opacity: 1;
 				transition: 0.3s ease-in-out;
 			}
@@ -118,8 +116,6 @@
 
 		&:hover {
 			.inner {
-				scale: 0.7;
-
 				svg {
 					fill-opacity: 0.2;
 				}

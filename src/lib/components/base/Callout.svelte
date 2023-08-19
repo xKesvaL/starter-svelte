@@ -1,14 +1,17 @@
 <script lang="ts">
 	import IconAlertCircle from '$lib/icons/IconAlertCircle.svelte';
+	import IconCircleCheck from '$lib/icons/IconCircleCheck.svelte';
 	import IconInfoCircle from '$lib/icons/IconInfoCircle.svelte';
 
-	export let type: 'info' | 'danger' = 'info';
+	export let type: 'info' | 'danger' | 'success' = 'info';
 </script>
 
 <div class="callout {type}">
 	<div class="icon">
 		{#if type == 'info'}
 			<IconInfoCircle />
+		{:else if type == 'success'}
+			<IconCircleCheck />
 		{:else if type == 'danger'}
 			<IconAlertCircle />
 		{/if}
@@ -24,23 +27,30 @@
 		padding: 1.5rem;
 		border-radius: 0 1rem 1rem 0;
 
-		&.info {
-			background: linear-grad-info(135deg, 0.4), linear-grad-info(315deg, 0.3),
-				linear-grad-primary(315deg, 0.1);
-			border-left: var(--clt-border-w) solid var(--color-info-500);
+		&.success {
+			background: rgba(var(--success-500-rgb), 0.5);
+			border-left: var(--clt-border-w) solid var(--success-500);
 
 			.icon {
-				color: var(--color-info-500);
+				color: var(--success-500);
+			}
+		}
+
+		&.info {
+			background: rgba(var(--info-500-rgb), 0.5);
+			border-left: var(--clt-border-w) solid var(--info-500);
+
+			.icon {
+				color: var(--info-500);
 			}
 		}
 
 		&.danger {
-			background: linear-grad-danger(135deg, 0.5), linear-grad-danger(315deg, 0.4),
-				linear-grad-primary(315deg, 0.1);
-			border-left: var(--clt-border-w) solid var(--color-danger-500);
+			background: rgba(var(--danger-500-rgb), 0.5);
+			border-left: var(--clt-border-w) solid var(--danger-500);
 
 			.icon {
-				color: var(--color-danger-500);
+				color: var(--danger-500);
 			}
 		}
 
@@ -54,7 +64,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: var(--color-base-100);
+			background: var(--base-50);
 			transform: translate(calc(-50% - (var(--clt-border-w) / 2)), -50%);
 			padding: 0.5rem;
 		}

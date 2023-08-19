@@ -13,7 +13,6 @@
 		href: '',
 		type: 'button',
 		disabled: false,
-		size: 'md',
 		style: 'solid'
 	};
 
@@ -21,7 +20,7 @@
 		color: {
 			type: 'string',
 			control: 'select',
-			options: ['primary', 'secondary', 'accent']
+			options: ['primary', 'secondary']
 		},
 		href: {
 			type: 'string',
@@ -35,11 +34,6 @@
 		disabled: {
 			type: 'boolean',
 			control: 'boolean'
-		},
-		size: {
-			type: 'string',
-			control: 'select',
-			options: ['sm', 'md', 'lg']
 		},
 		style: {
 			type: 'string',

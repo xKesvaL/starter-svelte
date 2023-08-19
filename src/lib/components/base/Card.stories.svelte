@@ -12,7 +12,7 @@
 		color: 'primary',
 		rounding: 'md',
 		gap: 'md',
-		scale: true,
+		scale: false,
 		href: '',
 		align: 'start',
 		justify: 'center'
@@ -26,7 +26,7 @@
 		color: {
 			type: 'string',
 			control: 'select',
-			options: ['primary', 'secondary', 'accent']
+			options: ['primary', 'secondary']
 		},
 		rounding: {
 			type: 'string',

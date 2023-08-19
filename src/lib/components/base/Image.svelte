@@ -47,15 +47,15 @@
 	figure img,
 	.invalid-source {
 		&.rounding-sm {
-			border-radius: var(--border-radius-2);
+			border-radius: 0.25rem;
 		}
 
 		&.rounding-md {
-			border-radius: var(--border-radius-3);
+			border-radius: 0.5rem;
 		}
 
 		&.rounding-lg {
-			border-radius: var(--border-radius-4);
+			border-radius: 1rem;
 		}
 
 		&.rounding-full {
@@ -69,7 +69,7 @@
 		margin-top: var(--size-1);
 		font-size: var(--fs-300);
 		font-style: italic;
-		color: var(--color-neutral-800);
+		color: var(--base-800);
 		letter-spacing: 0.025em;
 	}
 
@@ -91,12 +91,12 @@
 		height: 100%;
 		aspect-ratio: 1;
 		width: 100%;
-		background-color: var(--color-base-200);
-		color: var(--color-neutral-500);
+		background-color: var(--base-100);
+		color: var(--base-800);
 
 		.icon {
-			height: 4rem;
-			width: 4rem;
+			height: 3rem;
+			width: 3rem;
 		}
 	}
 </style>

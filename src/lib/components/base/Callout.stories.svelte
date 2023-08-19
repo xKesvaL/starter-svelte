@@ -15,7 +15,7 @@
 		type: {
 			type: 'string',
 			control: 'select',
-			options: ['info', 'danger']
+			options: ['success', 'info', 'danger']
 		}
 	};
 </script>

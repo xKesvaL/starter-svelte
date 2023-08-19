@@ -7,14 +7,14 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			$routes: resolve('./src/routes'),
-			$design: resolve('./node_modules/@kesval/design/scss/abstracts')
+			$design: resolve('./node_modules/@kesval/design/scss/utilities')
 		}
 	},
 
 	css: {
 		preprocessorOptions: {
 			scss: {
-				additionalData: '@use "node_modules/@kesval/design/scss/abstracts" as *;'
+				additionalData: '@use "node_modules/@kesval/design/scss/utilities" as *;'
 			}
 		}
 	}

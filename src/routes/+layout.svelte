@@ -4,6 +4,7 @@
 
 	import '@kesval/design';
 	import '$lib/styles/nprogress.scss';
+	import '$lib/styles/main.scss';
 
 	import { BRAND } from '$lib/config';
 	import { locales } from 'svelte-i18n';

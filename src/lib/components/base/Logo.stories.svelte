@@ -7,9 +7,33 @@
 
 	type Story = ComponentProps<Logo>;
 
-	const metaArgs: Story = {};
+	const metaArgs: Story = {
+		animated: true,
+		repeat: true,
+		scaleOrigin: 'center',
+		size: 'large'
+	};
 
-	const argTypes: ArgTypes<Story> = {};
+	const argTypes: ArgTypes<Story> = {
+		animated: {
+			type: 'boolean',
+			control: 'boolean'
+		},
+		repeat: {
+			type: 'boolean',
+			control: 'boolean'
+		},
+		scaleOrigin: {
+			type: 'string',
+			control: 'select',
+			options: ['center', 'left']
+		},
+		size: {
+			type: 'string',
+			control: 'select',
+			options: ['normal', 'semi-large', 'large']
+		}
+	};
 </script>
 
 <Meta title="Components/Base/Logo" component={Logo} args={metaArgs} {argTypes} />

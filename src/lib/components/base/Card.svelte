@@ -4,7 +4,7 @@
 
 	export let href: string | undefined = undefined;
 	export let classes = '';
-	export let scale = true;
+	export let scale = false;
 	export let color: ThemeColor = 'primary';
 	export let rounding: ThemeSize = 'md';
 	export let vertical = true;
@@ -14,7 +14,7 @@
 
 	let el: HTMLElement;
 
-	$: el?.style.setProperty('--card-drop-color', `rgba(var(--color-${color}-300-rgb), 0.3)`);
+	$: el?.style.setProperty('--card-drop-color', `rgba(var(--${color}-300-rgb), 0.3)`);
 
 	const onHover: MouseEventHandler<HTMLElement> = (ev) => {
 		const target = ev.currentTarget;
@@ -46,43 +46,35 @@
 </svelte:element>
 
 <style lang="scss">
-	@use '$design' as *;
-
 	.card {
 		--card-drop-x: 0;
 		--card-drop-y: 0;
 
-		--card-drop-color: rgba(var(--color-primary-300-rgb), 0.3);
+		--card-drop-color: rgba(var(--primary-300-rgb), 0.3);
 
 		display: inline-flex;
 		flex-direction: column;
-		border: 1px solid rgba(var(--color-neutral-900-rgb), 0.3);
-		background: rgba(var(--color-base-200-rgb), 0.1);
-		overflow: hidden;
-		transition: 0.3s;
-		position: relative;
-		box-shadow: var(--box-shadow-3);
-		height: 100%;
-		width: 100%;
+		transition: 0.2s;
+		padding: 0;
 
 		&.rounding-sm {
-			border-radius: var(--border-radius-2);
+			border-radius: 0.25rem;
 		}
 
 		&.rounding-md {
-			border-radius: var(--border-radius-3);
+			border-radius: 0.5rem;
 		}
 
 		&.rounding-lg {
-			border-radius: var(--border-radius-4);
+			border-radius: 1rem;
 		}
 
 		&:hover {
 			&.scale {
-				transform: scale(1.05);
+				transform: scale(1.02);
 			}
 
-			border-color: rgba(var(--color-neutral-900-rgb), 0.7);
+			border-color: rgba(var(--base-900-rgb), 0.7);
 		}
 
 		&-bg-img {
@@ -123,15 +115,15 @@
 
 			&.gap {
 				&-sm {
-					gap: var(--size-2);
+					gap: 0.5rem;
 				}
 
 				&-md {
-					gap: var(--size-3);
+					gap: 1rem;
 				}
 
 				&-lg {
-					gap: var(--size-4);
+					gap: 1.5rem;
 				}
 			}
 
@@ -140,7 +132,7 @@
 			}
 
 			&:hover {
-				background-color: rgba(var(--color-base-200-rgb), 0.3);
+				background-color: rgba(var(--base-200-rgb), 0.3);
 				background-image: radial-gradient(
 					circle at var(--card-drop-x) var(--card-drop-y),
 					var(--card-drop-color),

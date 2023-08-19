@@ -10,17 +10,22 @@
 	export let repeat = false;
 </script>
 
+<!-- ! IF YOU HAVE TROUBLE : 
+	If the logo doesn't look right, play with the svg width until it fits (don't overdo it!)
+	If the logo fits but is not centered or cut off on the left side, play with the tspan x value
+	It's roughly 5px per 20px of the svg width that you should change the tspan x value by
+-->
 <div class="logo {size} {scaleOrigin}" class:animated class:repeat>
 	<svg
 		class="flex h-full max-h-7 w-auto justify-center text-center"
-		width="800"
-		height="116"
-		viewBox="0 0 723.84009 116.720269"
+		width="250"
+		height="60"
+		viewBox="0 0 200 60"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<text transform="translate(-300,-206)" class="text"
-			><tspan x="275" y="292"
+		<text class="text"
+			><tspan x="-20" y="50"
 				><tspan class="tspan">
 					{BRAND.name}
 				</tspan></tspan
@@ -31,8 +36,8 @@
 
 <style lang="scss">
 	.logo {
-		--logo-text-color: var(--color-neutral-600);
-		--logo-text-color-end: var(--color-neutral-900);
+		--logo-text-color: var(--base-600);
+		--logo-text-color-end: var(--base-900);
 		display: flex;
 		height: 100%;
 		width: auto;
@@ -60,7 +65,8 @@
 
 				.tspan {
 					font-family: var(--ft-title);
-					font-size: 107px;
+					font-size: 4rem;
+					font-weight: 900;
 				}
 			}
 		}
@@ -92,20 +98,20 @@
 			stroke-dasharray: 0 50%;
 			stroke-width: 2;
 		}
-		70% {
+		60% {
 			fill: transparent;
 			stroke: var(--logo-text-color);
 		}
-		80% {
+		70% {
 			fill: transparent;
 			stroke: var(--logo-text-color);
 			stroke-width: 3;
 		}
-		100% {
+		90% {
 			fill: var(--logo-text-color-end);
 			stroke: transparent;
 			stroke-dashoffset: -25%;
-			stroke-dasharray: 50% 0;
+			stroke-dasharray: 100% 0;
 			stroke-width: 0;
 		}
 	}

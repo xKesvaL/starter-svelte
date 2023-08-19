@@ -20,6 +20,6 @@ export interface BrandAuthor {
 	url: string;
 }
 
-export type ThemeColor = 'primary' | 'secondary' | 'accent';
+export type ThemeColor = 'primary' | 'secondary';
 
 export type ThemeSize = 'sm' | 'md' | 'lg';
