@@ -1,9 +1,9 @@
-import type { Locale, Brand } from './types';
+import type { Locale, Brand } from './typings/standard';
 
 export const DEFAULT_LOCALE: Locale = 'en';
 
 export const BRAND = {
-	name: 'KesvaL',
+	name: 'Starter',
 	url: 'https://starter.kesval.com',
 	author: {
 		name: 'Kesval',
@@ -16,6 +16,8 @@ export const BRAND = {
 	color: {
 		primary: '#6c20df',
 		secondary: '#df20b9',
-		accent: '#19b357'
+		info: '',
+		danger: '',
+		success: ''
 	}
 } as const satisfies Brand;
