@@ -47,6 +47,9 @@ devDependencies:
   '@storybook/testing-library':
     specifier: ^0.2.0
     version: 0.2.0
+  '@storybook/theming':
+    specifier: ^7.4.0
+    version: 7.4.0(react-dom@18.2.0)(react@18.2.0)
   '@sveltejs/adapter-vercel':
     specifier: ^3.0.3
     version: 3.0.3(@sveltejs/kit@1.24.1)

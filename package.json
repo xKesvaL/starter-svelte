@@ -31,6 +31,7 @@
 		"@storybook/svelte": "^7.4.0",
 		"@storybook/sveltekit": "^7.4.0",
 		"@storybook/testing-library": "^0.2.0",
+		"@storybook/theming": "^7.4.0",
 		"@sveltejs/adapter-vercel": "^3.0.3",
 		"@sveltejs/kit": "^1.24.1",
 		"@total-typescript/ts-reset": "^0.4.2",
