@@ -13,8 +13,8 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"build": "vite build && npm run optimize-images",
 		"optimize-images": "image-opti --source ./build/images --target ./build/images",
-		"build:vercel": "npm run build && npm run optimize-images:vercel",
-		"optimize-images:vercel": "image-opti --source .vercel/output/static/images --target .vercel/output/static/images"
+		"build:vercel": "vite build && npm run optimize-images:vercel",
+		"optimize-images:vercel": "image-opti -s .vercel/output/static/images -t .vercel/output/static/images -v"
 	},
 	"devDependencies": {
 		"@kesval/design": "^3.1.0",
@@ -31,6 +31,7 @@
 		"@storybook/svelte": "^7.4.0",
 		"@storybook/sveltekit": "^7.4.0",
 		"@storybook/testing-library": "^0.2.0",
+		"@sveltejs/adapter-vercel": "^3.0.3",
 		"@sveltejs/kit": "^1.24.1",
 		"@total-typescript/ts-reset": "^0.4.2",
 		"@types/node": "^20.5.9",
@@ -55,10 +56,8 @@
 		"svelte-i18n": "^3.7.4",
 		"tslib": "^2.6.2",
 		"typescript": "^5.2.2",
-		"vite": "^4.4.9"
+		"vite": "^4.4.9",
+		"zod": "^3.22.2"
 	},
-	"type": "module",
-	"dependencies": {
-		"@sveltejs/adapter-vercel": "^3.0.3"
-	}
+	"type": "module"
 }
