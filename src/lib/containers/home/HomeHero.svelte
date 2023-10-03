@@ -8,9 +8,7 @@
 	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 	<div>
 		<h2>Colors ({$theme}) :</h2>
-		<div
-			class="flex flex-wrap gap-4 box border-2 border-primary p-8 rounded-xl justify-center align-items"
-		>
+		<div class="flex flex-wrap gap-4 box bg-neutral-700 p-8 rounded-xl justify-center align-items">
 			<div class="bg-background text-foreground">Background</div>
 			<div class="bg-muted text-muted-foreground">Muted</div>
 			<div class="bg-popover text-popover-foreground">Popover</div>
@@ -20,6 +18,8 @@
 			<div class="bg-secondary text-secondary-foreground">Secondary</div>
 			<div class="bg-accent text-accent-foreground">Accent</div>
 			<div class="bg-destructive text-destructive-foreground">Destructive</div>
+			<div class="bg-info text-info-foreground">Info</div>
+			<div class="bg-success text-success-foreground">Success</div>
 		</div>
 	</div>
 	<Button variant="default" on:click={() => theme.toggle()}>Switch Theme</Button>
