@@ -4,10 +4,10 @@ import { browser } from '$app/environment';
 const createTheme = () => {
 	let currentTheme;
 	if (browser) {
-		currentTheme = localStorage.getItem('theme') || 'dark';
+		currentTheme = localStorage.getItem('theme') || 'auto';
 	}
 
-	const { subscribe, set } = writable<string>(currentTheme);
+	const { subscribe, set, update } = writable<string>(currentTheme);
 
 	return {
 		subscribe,
@@ -17,6 +17,17 @@ const createTheme = () => {
 				document.firstElementChild?.setAttribute('data-theme', value);
 			}
 			set(value);
+		},
+		toggle: () => {
+			update((t) => {
+				if (t === 'dark') {
+					return 'light';
+				} else if (t === 'light') {
+					return 'auto';
+				} else {
+					return 'dark';
+				}
+			});
 		}
 	};
 };
