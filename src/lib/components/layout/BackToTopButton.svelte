@@ -1,67 +1,56 @@
+<!--suppress CheckEmptyScriptTag -->
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { afterUpdate } from 'svelte';
 	import { fly } from 'svelte/transition';
-
+	import ArrowTop from '$lib/icons/IconArrowTop.svelte';
 	import { t } from 'svelte-i18n';
-	import IconArrowTop from '$lib/icons/IconArrowTop.svelte';
-	import { capitalizeFirstLetter } from '$lib/utils/functions';
 
-	export let dev = false;
 	let scrollY: number;
-	let previousScrollY: number;
-	export let scrollPercentage: number = 0;
-	export let scrollingUp = false;
+	let scrollPercent: number;
 	let innerHeight: number;
 	let scrollHeight: number;
-	let scrollThresholdStep: number;
+	const topPercent = 0.025;
 	let pageEndTopBound: number;
-	const topPercentage = 0.025;
-	const bottomPercentage = 0.975;
 
-	$: scrollThresholdStep = innerHeight * 0.1;
 	$: if (browser) {
-		scrollPercentage = scrollY / pageEndTopBound;
+		scrollPercent = scrollY / pageEndTopBound;
 		pageEndTopBound = scrollHeight - innerHeight;
-		if (Math.abs(previousScrollY - scrollY) > scrollThresholdStep) {
-			scrollingUp = previousScrollY - scrollY > 0;
-			previousScrollY = scrollY;
-		}
 	}
 
 	afterUpdate(() => {
 		scrollHeight = document.documentElement.scrollHeight;
 	});
+
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	};
 </script>
 
 <svelte:window bind:scrollY bind:innerHeight />
 
-{#if (scrollPercentage > topPercentage && scrollPercentage < bottomPercentage) || dev}
+{#if scrollPercent > topPercent}
 	<button
-		on:click={() => {
-			scrollY = scrollingUp ? 0 : scrollHeight;
-		}}
-		class:dev
+		class="scroll-button"
+		on:click={() => scrollToTop()}
 		id="back-to-top"
-		aria-label="{capitalizeFirstLetter($t('std.scrollTo'))} {scrollingUp
-			? $t('std.top')
-			: $t('std.bottom')}"
+		aria-label="{$t('std.scrollTo')} {$t('std.top')}"
 		in:fly={{ y: 50, duration: 300, delay: 300 }}
 		out:fly={{ y: 50, duration: 300 }}
 	>
 		<div class="inner">
-			<div class="arrow {scrollingUp ? '' : 'down'}">
-				<IconArrowTop />
+			<div class="arrow">
+				<ArrowTop />
 			</div>
 
-			<svg height="100" width="100" style="transform: rotate(-90deg);stroke-dasharray: 251;">
+			<svg height="60" width="60" style="transform: rotate(-90deg);stroke-dasharray: 160;">
 				<circle
-					cx="50"
-					cy="50"
-					r="40"
-					stroke-width="6"
-					stroke="var(--color-primary-500)"
-					style="stroke-dashoffset: {251 - 251 * scrollPercentage};"
+					cx="30"
+					cy="30"
+					r="24"
+					stroke-width="3"
+					stroke="var(--primary-500)"
+					style="stroke-dashoffset: {160 - 160 * scrollPercent};"
 				/>
 			</svg>
 		</div>
@@ -69,18 +58,19 @@
 {/if}
 
 <style lang="scss">
-	button {
+	.scroll-button {
+		view-transition-name: back-to-top;
 		position: fixed;
 		display: grid;
-		bottom: 0;
-		right: 0;
+		bottom: 1rem;
+		right: 1rem;
 		z-index: 5;
-		border-radius: 9999px;
+		border-radius: 100vw;
 		background: transparent;
-
-		&.dev {
-			position: relative;
-		}
+		height: auto;
+		padding: 0;
+		width: 3.75rem;
+		height: 3.75rem;
 
 		.inner {
 			backdrop-filter: blur(0.5rem);
@@ -88,23 +78,17 @@
 			grid-column-start: 1;
 			grid-row-start: 1;
 			transition: 0.3s ease-in-out;
-			scale: 0.6;
 			position: relative;
 			background: var(--base-200);
 
 			.arrow {
 				position: absolute;
-				top: 1.45rem;
-				left: 1.45rem;
 				z-index: 50;
-				height: 3.5rem;
-				width: 3.5rem;
-				color: var(--base-900);
+				width: 100%;
+				height: 100%;
+				padding: 1.25rem;
+				color: var(--text);
 				transition: 0.3s ease-in-out;
-
-				&.down {
-					transform: rotateX(180deg);
-				}
 			}
 
 			svg {
