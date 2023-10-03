@@ -9,23 +9,29 @@ const createTheme = () => {
 
 	const { subscribe, set, update } = writable<string>(currentTheme);
 
+	const setTheme = (theme: string) => {
+		if (browser) {
+			localStorage.setItem('theme', theme);
+			document.firstElementChild?.setAttribute('data-theme', theme);
+		}
+		set(theme);
+
+		return theme;
+	};
+
 	return {
 		subscribe,
 		set: (value: string) => {
-			if (browser) {
-				localStorage.setItem('theme', value);
-				document.firstElementChild?.setAttribute('data-theme', value);
-			}
-			set(value);
+			setTheme(value);
 		},
 		toggle: () => {
 			update((t) => {
 				if (t === 'dark') {
-					return 'light';
+					return setTheme('light');
 				} else if (t === 'light') {
-					return 'auto';
+					return setTheme('auto');
 				} else {
-					return 'dark';
+					return setTheme('dark');
 				}
 			});
 		}
