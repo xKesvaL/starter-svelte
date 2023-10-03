@@ -24,6 +24,12 @@ sw.addEventListener('activate', (event) => {
 	event.waitUntil(deleteOldCaches(CACHE).then(() => sw.clients.claim()));
 });
 
-sw.addEventListener('fetch', (event) => {
-	event.respondWith(getFromCache(CACHE, ASSETS, event.request) as any);
+sw.addEventListener('fetch', async (event) => {
+	const fromCache = await getFromCache(CACHE, ASSETS, event.request);
+
+	if (!fromCache) {
+		return;
+	}
+
+	event.respondWith(fromCache);
 });
