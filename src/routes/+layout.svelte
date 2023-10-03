@@ -16,10 +16,22 @@
 	import { fly } from 'svelte/transition';
 
 	import nprogress from 'nprogress';
+	import { onNavigate } from '$app/navigation';
 	nprogress.configure({ minimum: 0.2, easing: 'ease', speed: 600 });
 	$: $navigating ? nprogress.start() : nprogress.done();
 
 	export let data: LayoutData;
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <svelte:head>
