@@ -21,3 +21,7 @@ export const BRAND = {
 		success: ''
 	}
 } as const satisfies Brand;
+
+export const ROUTES = {
+	home: '/'
+} as const satisfies Record<string, string>;
