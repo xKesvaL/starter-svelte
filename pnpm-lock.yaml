@@ -100,6 +100,9 @@ devDependencies:
   eslint-config-prettier:
     specifier: ^9.0.0
     version: 9.0.0(eslint@8.50.0)
+  eslint-plugin-perfectionist:
+    specifier: ^2.1.0
+    version: 2.1.0(eslint@8.50.0)(svelte@4.2.1)(typescript@5.2.2)
   eslint-plugin-storybook:
     specifier: ^0.6.14
     version: 0.6.14(eslint@8.50.0)(typescript@5.2.2)
@@ -142,6 +145,9 @@ devDependencies:
   svelte-i18n:
     specifier: ^3.7.4
     version: 3.7.4(svelte@4.2.1)
+  sveltekit-view-transition:
+    specifier: ^0.5.0
+    version: 0.5.0(@sveltejs/kit@1.25.1)(svelte@4.2.1)
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.3
@@ -5688,6 +5694,34 @@ packages:
       eslint: 8.50.0
     dev: true
 
+  /eslint-plugin-perfectionist@2.1.0(eslint@8.50.0)(svelte@4.2.1)(typescript@5.2.2):
+    resolution: {integrity: sha512-KVA7H6J/qfmZH/WopNKFgYbKoX+ozKAOIeQvo/+jibn6k9e71Et+giIHEHrMICZ043CeGpRKrCRRhlmD7pjeRg==}
+    peerDependencies:
+      astro-eslint-parser: ^0.14.0
+      eslint: '>=8.0.0'
+      svelte: '>=3.0.0'
+      svelte-eslint-parser: ^0.32.0
+      vue-eslint-parser: '>=9.0.0'
+    peerDependenciesMeta:
+      astro-eslint-parser:
+        optional: true
+      svelte:
+        optional: true
+      svelte-eslint-parser:
+        optional: true
+      vue-eslint-parser:
+        optional: true
+    dependencies:
+      '@typescript-eslint/utils': 6.7.4(eslint@8.50.0)(typescript@5.2.2)
+      eslint: 8.50.0
+      minimatch: 9.0.3
+      natural-compare-lite: 1.4.0
+      svelte: 4.2.1
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
   /eslint-plugin-storybook@0.6.14(eslint@8.50.0)(typescript@5.2.2):
     resolution: {integrity: sha512-IeYigPur/MvESNDo43Z+Z5UvlcEVnt0dDZmnw1odi9X2Th1R3bpGyOZsHXb9bp1pFecOpRUuoMG5xdID2TwwOg==}
     engines: {node: 12.x || 14.x || >= 16}
@@ -7539,6 +7573,10 @@ packages:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: true
 
+  /natural-compare-lite@1.4.0:
+    resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
+    dev: true
+
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
@@ -9170,6 +9208,16 @@ packages:
       htmlparser2-svelte: 4.1.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /sveltekit-view-transition@0.5.0(@sveltejs/kit@1.25.1)(svelte@4.2.1):
+    resolution: {integrity: sha512-LPPAPlV3ajqYADFpb1zz9emWA8FkEB1g0HEvWgIzIBII7ee6ui+5QCj0x/mQKq2bJbam3S3nZjxvtfYMJaPF/A==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.20.4
+      svelte: ^4.0.0
+    dependencies:
+      '@sveltejs/kit': 1.25.1(svelte@4.2.1)(vite@4.4.9)
+      svelte: 4.2.1
     dev: true
 
   /synchronous-promise@2.0.17:

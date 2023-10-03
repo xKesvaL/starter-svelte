@@ -14,21 +14,12 @@
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import BackToTopButton from '$lib/components/layout/BackToTopButton.svelte';
 
-	import { onNavigate } from '$app/navigation';
+	import { setupViewTransition } from 'sveltekit-view-transition';
 
 	nprogress.configure({ minimum: 0.2, easing: 'ease', speed: 600 });
 	$: $navigating ? nprogress.start() : nprogress.done();
 
-	onNavigate((navigation) => {
-		if (!document.startViewTransition) return;
-
-		return new Promise((resolve) => {
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
-		});
-	});
+	setupViewTransition();
 </script>
 
 <svelte:head>
