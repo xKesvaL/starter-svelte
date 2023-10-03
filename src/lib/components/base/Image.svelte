@@ -68,10 +68,10 @@
 	figure figcaption,
 	.caption {
 		text-align: center;
-		margin-top: var(--size-1);
+		margin-top: 0.5rem;
 		font-size: var(--fs-300);
 		font-style: italic;
-		color: var(--base-800);
+		color: hsl(var(--base-800));
 		letter-spacing: 0.025em;
 	}
 
@@ -100,8 +100,8 @@
 		height: 100%;
 		aspect-ratio: 1;
 		width: 100%;
-		background-color: var(--base-100);
-		color: var(--base-800);
+		background-color: hsl(var(--base-100));
+		color: hsl(var(--base-800));
 
 		.icon {
 			height: 3rem;

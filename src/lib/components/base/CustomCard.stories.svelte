@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
-	import Card from './Card.svelte';
+	import Card from './CustomCard.svelte';
 	import type { ArgTypes } from '@storybook/svelte';
 	import type { ComponentProps } from 'svelte';
 
@@ -59,7 +59,7 @@
 	};
 </script>
 
-<Meta title="Components/Base/Card" component={Card} args={metaArgs} {argTypes} />
+<Meta title="Components/Base/CustomCard" component={Card} args={metaArgs} {argTypes} />
 
 <Template args={metaArgs} {argTypes} let:args>
 	<Card {...args} />

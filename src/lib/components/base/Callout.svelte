@@ -28,29 +28,29 @@
 		border-radius: 0 1rem 1rem 0;
 
 		&.success {
-			background: rgba(var(--success-500-rgb), 0.5);
-			border-left: var(--clt-border-w) solid var(--success-500);
+			background: hsl(var(--success-500) / 0.5);
+			border-left: var(--clt-border-w) solid hsl(var(--success-500));
 
 			.icon {
-				color: var(--success-500);
+				color: hsl(var(--success-500));
 			}
 		}
 
 		&.info {
-			background: rgba(var(--info-500-rgb), 0.5);
-			border-left: var(--clt-border-w) solid var(--info-500);
+			background: hsl(var(--info-500-rgb) / 0.5);
+			border-left: var(--clt-border-w) solid hsl(var(--info-500));
 
 			.icon {
-				color: var(--info-500);
+				color: hsl(var(--info-500));
 			}
 		}
 
 		&.danger {
-			background: rgba(var(--danger-500-rgb), 0.5);
-			border-left: var(--clt-border-w) solid var(--danger-500);
+			background: hsl(var(--danger-500) / 0.5);
+			border-left: var(--clt-border-w) solid hsl(var(--danger-500));
 
 			.icon {
-				color: var(--danger-500);
+				color: hsl(var(--danger-500));
 			}
 		}
 
@@ -64,7 +64,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: var(--base-50);
+			background: hsl(var(--base-50));
 			transform: translate(calc(-50% - (var(--clt-border-w) / 2)), -50%);
 			padding: 0.5rem;
 		}

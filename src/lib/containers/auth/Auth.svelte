@@ -2,7 +2,7 @@
 	import AuthLogin from '$lib/components/auth/AuthLogin.svelte';
 	import AuthReauth from '$lib/components/auth/AuthReauth.svelte';
 	import AuthRegister from '$lib/components/auth/AuthRegister.svelte';
-	import Card from '$lib/components/base/Card.svelte';
+	import Card from '$lib/components/base/CustomCard.svelte';
 	import { fade } from 'svelte/transition';
 
 	export let type: 'login' | 'register' | 'reauth' = 'login';

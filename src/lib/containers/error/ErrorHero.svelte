@@ -10,11 +10,7 @@
 
 <style lang="scss">
 	section {
-		background: radial-gradient(
-			circle,
-			rgba(var(--color-accent-500-rgb), 0.15) 0%,
-			rgba(var(--color-base-100-rgb), 0) 60%
-		);
+		background: radial-gradient(circle, hsl(var(--color-accent-500) / 0.15) 0%, transparent 60%);
 		min-height: 100vh;
 	}
 </style>

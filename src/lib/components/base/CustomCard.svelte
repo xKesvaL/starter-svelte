@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ThemeColor, ThemeSize } from '$lib/types';
+	import type { ThemeColor, ThemeSize } from '$lib/typings/standard';
 	import type { MouseEventHandler } from 'svelte/elements';
 
 	export let href: string | undefined = undefined;
@@ -14,7 +14,7 @@
 
 	let el: HTMLElement;
 
-	$: el?.style.setProperty('--card-drop-color', `rgba(var(--${color}-300-rgb), 0.3)`);
+	$: el?.style.setProperty('--card-drop-color', `hsl(var(--${color}-300) / 0.3)`);
 
 	const onHover: MouseEventHandler<HTMLElement> = (ev) => {
 		const target = ev.currentTarget;
@@ -50,7 +50,7 @@
 		--card-drop-x: 0;
 		--card-drop-y: 0;
 
-		--card-drop-color: rgba(var(--primary-300-rgb), 0.3);
+		--card-drop-color: hsl(var(--primary-300) / 0.3);
 
 		display: inline-flex;
 		flex-direction: column;
@@ -74,7 +74,7 @@
 				transform: scale(1.02);
 			}
 
-			border-color: rgba(var(--base-900-rgb), 0.7);
+			border-color: hsl(var(--base-900) / 0.7);
 		}
 
 		&-bg-img {
@@ -132,7 +132,7 @@
 			}
 
 			&:hover {
-				background-color: rgba(var(--base-200-rgb), 0.3);
+				background-color: hsl(var(--base-200) / 0.3);
 				background-image: radial-gradient(
 					circle at var(--card-drop-x) var(--card-drop-y),
 					var(--card-drop-color),

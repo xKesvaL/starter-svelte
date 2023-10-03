@@ -25,11 +25,5 @@ sw.addEventListener('activate', (event) => {
 });
 
 sw.addEventListener('fetch', async (event) => {
-	const fromCache = await getFromCache(CACHE, ASSETS, event.request);
-
-	if (!fromCache) {
-		return;
-	}
-
-	event.respondWith(fromCache);
+	event.respondWith(getFromCache(CACHE, ASSETS, event.request));
 });

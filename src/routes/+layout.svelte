@@ -1,10 +1,11 @@
 <script lang="ts">
-	import type { LayoutData } from './$types';
 	import { navigating } from '$app/stores';
+	import nprogress from 'nprogress';
 
 	import '@kesval/design';
 	import '$lib/styles/nprogress.scss';
 	import '$lib/styles/main.scss';
+	import '../app.postcss';
 
 	import { BRAND } from '$lib/config';
 	import { locales } from 'svelte-i18n';
@@ -13,14 +14,10 @@
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import BackToTopButton from '$lib/components/layout/BackToTopButton.svelte';
 
-	import { fly } from 'svelte/transition';
-
-	import nprogress from 'nprogress';
 	import { onNavigate } from '$app/navigation';
+
 	nprogress.configure({ minimum: 0.2, easing: 'ease', speed: 600 });
 	$: $navigating ? nprogress.start() : nprogress.done();
-
-	export let data: LayoutData;
 
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
@@ -48,11 +45,9 @@
 
 <Navigation />
 
-{#key data.url.pathname}
-	<main in:fly={{ y: 100, duration: 300, delay: 300 }} out:fly={{ y: -100, duration: 300 }}>
-		<slot />
-	</main>
-{/key}
+<main>
+	<slot />
+</main>
 
 <BackToTopButton />
 <Footer />

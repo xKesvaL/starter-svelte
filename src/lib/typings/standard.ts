@@ -20,7 +20,17 @@ export interface BrandAuthor {
 	url: string;
 }
 
-export type ThemeColor = 'primary' | 'secondary' | 'info' | 'danger' | 'success';
+export type ThemeColor =
+	| 'background'
+	| 'muted'
+	| 'popover'
+	| 'card'
+	| 'primary'
+	| 'secondary'
+	| 'accent'
+	| 'destructive'
+	| 'info'
+	| 'success';
 
 export type ThemeSize = 'sm' | 'md' | 'lg';
 

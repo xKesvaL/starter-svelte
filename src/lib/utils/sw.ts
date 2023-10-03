@@ -11,7 +11,11 @@ export const deleteOldCaches = async (currentCacheKey: string) => {
 	}
 };
 
-export const getFromCache = async (cacheKey: string, assets: string[], request: Request) => {
+export const getFromCache = async (
+	cacheKey: string,
+	assets: string[],
+	request: Request
+): Promise<Response> => {
 	if (
 		request.method !== 'GET' ||
 		request.url.startsWith('chrome-extension://') ||
@@ -24,7 +28,7 @@ export const getFromCache = async (cacheKey: string, assets: string[], request: 
 	const cache = await caches.open(cacheKey);
 
 	if (assets.includes(url.pathname)) {
-		return cache.match(url.pathname);
+		return cache.match(url.pathname) as Promise<Response>;
 	}
 
 	try {
@@ -36,6 +40,6 @@ export const getFromCache = async (cacheKey: string, assets: string[], request: 
 
 		return response;
 	} catch (e) {
-		return cache.match(request);
+		return cache.match(request) as Promise<Response>;
 	}
 };
