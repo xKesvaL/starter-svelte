@@ -42,7 +42,7 @@
     --radius: 0.5rem;
   }
  
-  [data-theme="dark"], [data-theme="auto"] {
+  [data-theme="dark"] {
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
  
@@ -51,9 +51,19 @@
  
     --secondary: 210 40% 98%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
- 
-    --ring: hsl(212.7,26.8%,83.9);
+  }
+
+  [data-theme="auto"] {
+    @media (prefers-color-scheme: dark) {
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+   
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+   
+      --secondary: 210 40% 98%;
+      --secondary-foreground: 222.2 47.4% 11.2%;
+    }
   }
 }
  
