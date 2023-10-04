@@ -12,5 +12,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (lang) {
 		langStore.set(lang);
 	}
+
 	return resolve(event);
 };
