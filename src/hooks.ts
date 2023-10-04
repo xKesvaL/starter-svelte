@@ -17,7 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		const expires = new Date();
 		expires.setFullYear(expires.getFullYear() + 1);
 		// if this is the first time the user has visited this app,
-		// set a cookie so that we recognise them when they return
+		// set a cookie so that we recognize them when they return
 		response.headers.set(
 			'set-cookie',
 			cookie.serialize('uid', event.locals.uid, {

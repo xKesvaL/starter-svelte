@@ -1,5 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
 
+import { DEFAULT_LOCALE, type Locale } from '$lib/config';
 import { langStore } from '$lib/stores/lang';
 
 export const handle: Handle = async ({ event, resolve }) => {
@@ -9,9 +10,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	lang = lang?.split('-')[0];
 
-	if (lang) {
-		langStore.set(lang);
-	}
+	langStore.set((lang as Locale) || DEFAULT_LOCALE);
 
 	return resolve(event);
 };

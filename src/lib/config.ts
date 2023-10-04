@@ -1,10 +1,10 @@
-import type { Brand, Locale } from './typings/standard';
+import type { Brand, Route } from './typings/standard';
 
 export const DEFAULT_LOCALE: Locale = 'en';
 
 export const BRAND = {
 	author: {
-		name: 'Kesval',
+		name: 'KesvaL',
 		url: 'https://kesval.com'
 	},
 	logo: {
@@ -16,5 +16,11 @@ export const BRAND = {
 } as const satisfies Brand;
 
 export const ROUTES = {
-	home: '/'
-} as const satisfies Record<string, string>;
+	home: {
+		path: '/'
+	}
+} as const satisfies Record<string, Route>;
+
+export const LOCALES = ['en', 'fr'] as const;
+
+export type Locale = (typeof LOCALES)[number];

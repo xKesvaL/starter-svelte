@@ -1,5 +1,3 @@
-export type Locale = 'en' | 'fr';
-
 export interface Brand {
 	author: BrandAuthor;
 	logo: BrandLogo;
@@ -15,6 +13,10 @@ export interface BrandLogo {
 export interface BrandAuthor {
 	name: string;
 	url: string;
+}
+
+export interface Route {
+	path: string;
 }
 
 export type ThemeColor =
