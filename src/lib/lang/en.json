@@ -1,7 +1,7 @@
 {
-  "std": {
-    "bottom": "bottom",
-    "scrollTo": "scroll to",
-    "top": "top"
-  }
+	"std": {
+		"bottom": "bottom",
+		"scrollTo": "scroll to",
+		"top": "top"
+	}
 }

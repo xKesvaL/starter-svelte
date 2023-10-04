@@ -1,21 +1,22 @@
 <script lang="ts">
-	import IconPhotoOff from '$lib/icons/IconPhotoOff.svelte';
 	import type { ThemeSize } from '$lib/typings/standard';
+
+	import IconPhotoOff from '$lib/icons/IconPhotoOff.svelte';
 	import { Image } from '@kesval/image-svelte';
 
 	export let src: string;
 	export let alt: string;
 
-	export let loading: 'lazy' | 'eager' = 'lazy';
-	export let figcaption: string | null = null;
-	export let rounding: ThemeSize | 'full' = 'md';
+	export let loading: 'eager' | 'lazy' = 'lazy';
+	export let figcaption: null | string = null;
+	export let rounding: 'full' | ThemeSize = 'md';
 
-	export let objectFit: 'cover' | 'contain' = 'cover';
+	export let objectFit: 'contain' | 'cover' = 'cover';
 
 	let error = false;
 </script>
 
-<Image {src} {alt} srcPrefix="/images.vercel/output/static" let:srcSet>
+<Image {alt} let:srcSet {src} srcPrefix="/images.vercel/output/static">
 	{#if error}
 		<div class="invalid-source rounding-{rounding}">
 			<div class="icon">
@@ -28,15 +29,15 @@
 	{:else}
 		<figure>
 			<img
-				class="rounding-{rounding} {objectFit}"
-				{src}
 				{alt}
-				srcset={srcSet}
+				class="rounding-{rounding} {objectFit}"
+				decoding="async"
 				{loading}
 				on:error={() => {
 					error = true;
 				}}
-				decoding="async"
+				{src}
+				srcset={srcSet}
 			/>
 			{#if figcaption}
 				<figcaption>{figcaption}</figcaption>

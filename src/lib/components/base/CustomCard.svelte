@@ -8,8 +8,8 @@
 	export let color: ThemeColor = 'primary';
 	export let rounding: ThemeSize = 'md';
 	export let vertical = true;
-	export let justify: 'start' | 'center' | 'end' = 'center';
-	export let align: 'start' | 'center' | 'end' = 'start';
+	export let justify: 'center' | 'end' | 'start' = 'center';
+	export let align: 'center' | 'end' | 'start' = 'start';
 	export let gap: ThemeSize = 'md';
 
 	let el: HTMLElement;
@@ -29,13 +29,13 @@
 </script>
 
 <svelte:element
-	this={href ? 'a' : 'div'}
-	{href}
 	bind:this={el}
-	on:mousemove={onHover}
 	class="card rounding-{rounding}"
 	class:scale
+	{href}
+	on:mousemove={onHover}
 	role="region"
+	this={href ? 'a' : 'div'}
 >
 	<div
 		class="card-bg-img justify-{justify} align-{align} gap-{gap} {classes} "

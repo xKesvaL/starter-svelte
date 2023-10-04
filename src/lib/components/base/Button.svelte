@@ -2,13 +2,13 @@
 	import type { ThemeColor } from '$lib/types';
 
 	export let color: ThemeColor = 'primary';
-	export let href: string | null = null;
-	export let type: 'button' | 'submit' | 'reset' = 'button';
+	export let href: null | string = null;
+	export let type: 'button' | 'reset' | 'submit' = 'button';
 	export let disabled: boolean = false;
-	export let style: 'solid' | 'outline' = 'solid';
+	export let style: 'outline' | 'solid' = 'solid';
 </script>
 
-<svelte:element this={href ? 'a' : 'button'} class="button {color} {style}" {type} {disabled}>
+<svelte:element class="button {color} {style}" {disabled} this={href ? 'a' : 'button'} {type}>
 	{#if $$slots.icon}
 		<span>
 			<slot name="icon" />

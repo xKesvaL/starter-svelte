@@ -1,9 +1,9 @@
 <script lang="ts">
+	import type { ArgTypes } from '@storybook/svelte';	import type { ComponentProps } from 'svelte';
+
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
 	import Callout from './Callout.svelte';
-	import type { ArgTypes } from '@storybook/svelte';
-	import type { ComponentProps } from 'svelte';
 
 	type Story = ComponentProps<Callout>;
 
@@ -13,20 +13,20 @@
 
 	const argTypes: ArgTypes<Story> = {
 		type: {
-			type: 'string',
 			control: 'select',
-			options: ['success', 'info', 'danger']
+			options: ['success', 'info', 'danger'],
+			type: 'string'
 		}
 	};
 </script>
 
-<Meta title="Components/Base/Callout" component={Callout} args={metaArgs} {argTypes} />
+<Meta {argTypes} args={metaArgs} component={Callout} title="Components/Base/Callout" />
 
-<Template args={metaArgs} {argTypes} let:args>
+<Template {argTypes} args={metaArgs} let:args>
 	<Callout {...args} />
 </Template>
 
-<Story name="Default" let:args>
+<Story let:args name="Default">
 	<Callout {...args}>
 		Hi I am a Callout. This is used to tell peolpe about something important or to get their
 		attention, usually in a blog.

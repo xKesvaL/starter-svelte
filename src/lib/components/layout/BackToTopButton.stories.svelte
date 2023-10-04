@@ -1,9 +1,9 @@
 <script lang="ts">
+	import type { ArgTypes } from '@storybook/svelte';	import type { ComponentProps } from 'svelte';
+
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
 	import BackTopTopButton from './BackToTopButton.svelte';
-	import type { ArgTypes } from '@storybook/svelte';
-	import type { ComponentProps } from 'svelte';
 
 	type Story = ComponentProps<BackTopTopButton>;
 
@@ -13,16 +13,16 @@
 </script>
 
 <Meta
-	title="Components/Layout/BackToTopButton"
-	component={BackTopTopButton}
-	args={metaArgs}
 	{argTypes}
+	args={metaArgs}
+	component={BackTopTopButton}
+	title="Components/Layout/BackToTopButton"
 />
 
-<Template args={metaArgs} {argTypes} let:args>
+<Template {argTypes} args={metaArgs} let:args>
 	<BackTopTopButton {...args} />
 </Template>
 
-<Story name="Default" let:args>
+<Story let:args name="Default">
 	<BackTopTopButton {...args} />
 </Story>

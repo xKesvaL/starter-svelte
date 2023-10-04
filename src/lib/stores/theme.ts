@@ -1,5 +1,5 @@
-import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
+import { writable } from 'svelte/store';
 
 const createTheme = () => {
 	let currentTheme;
@@ -7,7 +7,7 @@ const createTheme = () => {
 		currentTheme = localStorage.getItem('theme') || 'auto';
 	}
 
-	const { subscribe, set, update } = writable<string>(currentTheme);
+	const { set, subscribe, update } = writable<string>(currentTheme);
 
 	const setTheme = (theme: string) => {
 		if (browser) {
@@ -20,10 +20,10 @@ const createTheme = () => {
 	};
 
 	return {
-		subscribe,
 		set: (value: string) => {
 			setTheme(value);
 		},
+		subscribe,
 		toggle: () => {
 			update((t) => {
 				if (t === 'dark') {

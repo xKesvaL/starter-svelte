@@ -1,14 +1,14 @@
+import { langStore } from '$lib/stores/lang';
 import '$lib/utils/i18n';
 
-import { langStore } from '$lib/stores/lang';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ params }) => {
-  const lang = params.lang || "en";
-  
-  langStore.set(lang);
+	const lang = params.lang || 'en';
 
-  return {
-    lang
-  }
-}
+	langStore.set(lang);
+
+	return {
+		lang
+	};
+};

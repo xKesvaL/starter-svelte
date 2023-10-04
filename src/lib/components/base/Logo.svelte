@@ -3,7 +3,7 @@
 
 	export let animated = true;
 
-	export let size: 'normal' | 'semi-large' | 'large' = 'normal';
+	export let size: 'large' | 'normal' | 'semi-large' = 'normal';
 
 	export let scaleOrigin: 'center' | 'left' = 'center';
 
@@ -18,10 +18,10 @@
 <div class="logo {size} {scaleOrigin}" class:animated class:repeat>
 	<svg
 		class="flex h-full max-h-7 w-auto justify-center text-center"
-		width="250"
+		fill="none"
 		height="60"
 		viewBox="0 0 200 60"
-		fill="none"
+		width="250"
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<text class="text"

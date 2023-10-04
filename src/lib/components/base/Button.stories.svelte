@@ -1,59 +1,59 @@
 <script lang="ts">
+	import type { ArgTypes } from '@storybook/svelte';	import type { ComponentProps } from 'svelte';
+
+	import IconMenu from '$lib/icons/IconMenu.svelte';
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
 	import Button from './Button.svelte';
-	import IconMenu from '$lib/icons/IconMenu.svelte';
-	import type { ArgTypes } from '@storybook/svelte';
-	import type { ComponentProps } from 'svelte';
 
 	type Story = ComponentProps<Button>;
 
 	const metaArgs: Story = {
 		color: 'primary',
-		href: '',
-		type: 'button',
 		disabled: false,
-		style: 'solid'
+		href: '',
+		style: 'solid',
+		type: 'button'
 	};
 
 	const argTypes: ArgTypes<Story> = {
 		color: {
-			type: 'string',
 			control: 'select',
-			options: ['primary', 'secondary']
-		},
-		href: {
-			type: 'string',
-			control: 'text'
-		},
-		type: {
-			type: 'string',
-			control: 'select',
-			options: ['button', 'submit', 'reset']
+			options: ['primary', 'secondary'],
+			type: 'string'
 		},
 		disabled: {
-			type: 'boolean',
-			control: 'boolean'
+			control: 'boolean',
+			type: 'boolean'
+		},
+		href: {
+			control: 'text',
+			type: 'string'
 		},
 		style: {
-			type: 'string',
 			control: 'select',
-			options: ['solid', 'outline']
+			options: ['solid', 'outline'],
+			type: 'string'
+		},
+		type: {
+			control: 'select',
+			options: ['button', 'submit', 'reset'],
+			type: 'string'
 		}
 	};
 </script>
 
-<Meta title="Components/Base/Button" component={Button} args={metaArgs} {argTypes} />
+<Meta {argTypes} args={metaArgs} component={Button} title="Components/Base/Button" />
 
-<Template args={metaArgs} {argTypes} let:args>
+<Template {argTypes} args={metaArgs} let:args>
 	<Button {...args} />
 </Template>
 
-<Story name="Without Icon" let:args>
+<Story let:args name="Without Icon">
 	<Button {...args}>Button</Button>
 </Story>
 
-<Story name="With Icon" let:args>
+<Story let:args name="With Icon">
 	<Button {...args}>
 		<IconMenu slot="icon" />
 		Button

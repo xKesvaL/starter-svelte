@@ -1,17 +1,16 @@
 export type Locale = 'en' | 'fr';
 
 export interface Brand {
+	author: BrandAuthor;
+	logo: BrandLogo;
 	name: string;
 	url: string;
-	logo: BrandLogo;
-	author: BrandAuthor;
 }
 
 export interface BrandLogo {
-	light: string;
 	dark: string;
+	light: string;
 }
-
 
 export interface BrandAuthor {
 	name: string;
@@ -19,17 +18,18 @@ export interface BrandAuthor {
 }
 
 export type ThemeColor =
-	| 'background'
-	| 'muted'
-	| 'popover'
-	| 'card'
-	| 'primary'
-	| 'secondary'
 	| 'accent'
+	| 'background'
+	| 'card'
 	| 'destructive'
 	| 'info'
+	| 'muted'
+	| 'popover'
+	| 'primary'
+	| 'secondary'
 	| 'success';
 
+// eslint-disable-next-line perfectionist/sort-union-types
 export type ThemeSize = 'sm' | 'md' | 'lg';
 
 export interface FormattedZodError {

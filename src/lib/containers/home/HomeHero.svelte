@@ -22,7 +22,7 @@
 			<div class="bg-success text-success-foreground">Success</div>
 		</div>
 	</div>
-	<Button variant="default" on:click={() => theme.toggle()}>Switch Theme</Button>
+	<Button on:click={() => theme.toggle()} variant="default">Switch Theme</Button>
 </section>
 
 <style lang="scss">

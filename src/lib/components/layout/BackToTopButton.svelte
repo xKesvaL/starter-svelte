@@ -1,9 +1,9 @@
 <!--suppress CheckEmptyScriptTag -->
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import ArrowTop from '$lib/icons/IconArrowTop.svelte';
 	import { afterUpdate } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import ArrowTop from '$lib/icons/IconArrowTop.svelte';
 	import { t } from 'svelte-i18n';
 
 	let scrollY: number;
@@ -23,33 +23,33 @@
 	});
 
 	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		window.scrollTo({ behavior: 'smooth', top: 0 });
 	};
 </script>
 
-<svelte:window bind:scrollY bind:innerHeight />
+<svelte:window bind:innerHeight bind:scrollY />
 
 {#if scrollPercent > topPercent}
 	<button
-		class="scroll-button"
-		on:click={() => scrollToTop()}
-		id="back-to-top"
 		aria-label="{$t('std.scrollTo')} {$t('std.top')}"
-		in:fly={{ y: 50, duration: 300, delay: 300 }}
-		out:fly={{ y: 50, duration: 300 }}
+		class="scroll-button"
+		id="back-to-top"
+		in:fly={{ delay: 300, duration: 300, y: 50 }}
+		on:click={() => scrollToTop()}
+		out:fly={{ duration: 300, y: 50 }}
 	>
 		<div class="inner">
 			<div class="arrow">
 				<ArrowTop />
 			</div>
 
-			<svg height="60" width="60" style="transform: rotate(-90deg);stroke-dasharray: 160;">
+			<svg height="60" style="transform: rotate(-90deg);stroke-dasharray: 160;" width="60">
 				<circle
 					cx="30"
 					cy="30"
 					r="24"
-					stroke-width="3"
 					stroke="hsl(var(--primary-500))"
+					stroke-width="3"
 					style="stroke-dashoffset: {160 - 160 * scrollPercent};"
 				/>
 			</svg>

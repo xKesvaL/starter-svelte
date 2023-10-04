@@ -1,9 +1,9 @@
 <script lang="ts">
+	import type { ArgTypes } from '@storybook/svelte';	import type { ComponentProps } from 'svelte';
+
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
 	import Logo from './Logo.svelte';
-	import type { ArgTypes } from '@storybook/svelte';
-	import type { ComponentProps } from 'svelte';
 
 	type Story = ComponentProps<Logo>;
 
@@ -16,32 +16,32 @@
 
 	const argTypes: ArgTypes<Story> = {
 		animated: {
-			type: 'boolean',
-			control: 'boolean'
+			control: 'boolean',
+			type: 'boolean'
 		},
 		repeat: {
-			type: 'boolean',
-			control: 'boolean'
+			control: 'boolean',
+			type: 'boolean'
 		},
 		scaleOrigin: {
-			type: 'string',
 			control: 'select',
-			options: ['center', 'left']
+			options: ['center', 'left'],
+			type: 'string'
 		},
 		size: {
-			type: 'string',
 			control: 'select',
-			options: ['normal', 'semi-large', 'large']
+			options: ['normal', 'semi-large', 'large'],
+			type: 'string'
 		}
 	};
 </script>
 
-<Meta title="Components/Base/Logo" component={Logo} args={metaArgs} {argTypes} />
+<Meta {argTypes} args={metaArgs} component={Logo} title="Components/Base/Logo" />
 
-<Template args={metaArgs} {argTypes} let:args>
+<Template {argTypes} args={metaArgs} let:args>
 	<Logo {...args} />
 </Template>
 
-<Story name="Default" let:args>
+<Story let:args name="Default">
 	<Logo {...args} />
 </Story>

@@ -1,71 +1,71 @@
 <script lang="ts">
+	import type { ArgTypes } from '@storybook/svelte';	import type { ComponentProps } from 'svelte';
+
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
 	import Card from './CustomCard.svelte';
-	import type { ArgTypes } from '@storybook/svelte';
-	import type { ComponentProps } from 'svelte';
 
 	type Story = ComponentProps<Card>;
 
 	const metaArgs: Story = {
-		vertical: true,
-		color: 'primary',
-		rounding: 'md',
-		gap: 'md',
-		scale: false,
-		href: '',
 		align: 'start',
-		justify: 'center'
+		color: 'primary',
+		gap: 'md',
+		href: '',
+		justify: 'center',
+		rounding: 'md',
+		scale: false,
+		vertical: true
 	};
 
 	const argTypes: ArgTypes<Story> = {
-		vertical: {
-			control: 'boolean',
-			type: 'boolean'
+		align: {
+			control: 'select',
+			options: ['start', 'center', 'end'],
+			type: 'string'
 		},
 		color: {
-			type: 'string',
 			control: 'select',
-			options: ['primary', 'secondary']
-		},
-		rounding: {
-			type: 'string',
-			control: 'select',
-			options: ['sm', 'md', 'lg']
+			options: ['primary', 'secondary'],
+			type: 'string'
 		},
 		gap: {
-			type: 'string',
 			control: 'select',
-			options: ['sm', 'md', 'lg']
+			options: ['sm', 'md', 'lg'],
+			type: 'string'
+		},
+		href: {
+			control: 'text',
+			type: 'string'
+		},
+		justify: {
+			control: 'select',
+			options: ['start', 'center', 'end'],
+			type: 'string'
+		},
+		rounding: {
+			control: 'select',
+			options: ['sm', 'md', 'lg'],
+			type: 'string'
 		},
 		scale: {
 			control: 'boolean',
 			type: 'boolean'
 		},
-		href: {
-			type: 'string',
-			control: 'text'
-		},
-		align: {
-			type: 'string',
-			control: 'select',
-			options: ['start', 'center', 'end']
-		},
-		justify: {
-			type: 'string',
-			control: 'select',
-			options: ['start', 'center', 'end']
+		vertical: {
+			control: 'boolean',
+			type: 'boolean'
 		}
 	};
 </script>
 
-<Meta title="Components/Base/CustomCard" component={Card} args={metaArgs} {argTypes} />
+<Meta {argTypes} args={metaArgs} component={Card} title="Components/Base/CustomCard" />
 
-<Template args={metaArgs} {argTypes} let:args>
+<Template {argTypes} args={metaArgs} let:args>
 	<Card {...args} />
 </Template>
 
-<Story name="Vertical" let:args>
+<Story let:args name="Vertical">
 	<Card {...args}>
 		<div>I am a card</div>
 		<div>That is vertical</div>
@@ -73,7 +73,7 @@
 	</Card>
 </Story>
 
-<Story name="Horizontal" let:args args={{ vertical: false }}>
+<Story args={{ vertical: false }} let:args name="Horizontal">
 	<Card {...args}>
 		<div>I am a card</div>
 		<div>That is horizontal</div>

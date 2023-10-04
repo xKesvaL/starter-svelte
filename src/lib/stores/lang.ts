@@ -1,17 +1,17 @@
-import { locale } from "svelte-i18n";
-import { writable } from "svelte/store"
+import { writable } from 'svelte/store';
+import { locale } from 'svelte-i18n';
 
 const createLangStore = () => {
-  const {  subscribe, set, update } = writable('en');
+	const { set, subscribe, update } = writable('en');
 
-  return {
-    subscribe,
-    set: (lang: string) => {
-      locale.set(lang);
-      set(lang);
-    },
-    update
-  }
-}
+	return {
+		set: (lang: string) => {
+			locale.set(lang);
+			set(lang);
+		},
+		subscribe,
+		update
+	};
+};
 
 export const langStore = createLangStore();

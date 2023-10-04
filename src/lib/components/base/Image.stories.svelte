@@ -1,68 +1,68 @@
 <script lang="ts">
+	import type { ArgTypes } from '@storybook/svelte';	import type { ComponentProps } from 'svelte';
+
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
-	import type { ComponentProps } from 'svelte';
 	import Image from './Image.svelte';
-	import type { ArgTypes } from '@storybook/svelte';
 
 	type Story = ComponentProps<Image>;
 
 	const metaArgs: Story = {
-		src: '',
 		alt: 'Alt Text',
 		figcaption: 'Figcaption Text',
 		loading: 'lazy',
-		rounding: 'md'
+		rounding: 'md',
+		src: ''
 	};
 
 	const argTypes: ArgTypes<Story> = {
-		src: {
-			type: 'string',
-			control: 'text'
-		},
 		alt: {
-			type: 'string',
-			control: 'text'
+			control: 'text',
+			type: 'string'
 		},
 		figcaption: {
-			type: 'string',
-			control: 'text'
+			control: 'text',
+			type: 'string'
 		},
 		loading: {
-			type: 'string',
 			control: 'select',
-			options: ['lazy', 'eager']
+			options: ['lazy', 'eager'],
+			type: 'string'
 		},
 		rounding: {
-			type: 'string',
 			control: 'select',
-			options: ['sm', 'md', 'lg', 'full']
+			options: ['sm', 'md', 'lg', 'full'],
+			type: 'string'
+		},
+		src: {
+			control: 'text',
+			type: 'string'
 		}
 	};
 </script>
 
-<Meta title="Components/Base/Image" component={Image} args={metaArgs} {argTypes} />
+<Meta {argTypes} args={metaArgs} component={Image} title="Components/Base/Image" />
 
-<Template args={metaArgs} {argTypes} let:args>
+<Template {argTypes} args={metaArgs} let:args>
 	<Image {...args} />
 </Template>
 
 <Story
-	name="Valid Source"
-	let:args
 	args={{
 		src: 'https://via.placeholder.com/150'
 	}}
+	let:args
+	name="Valid Source"
 >
 	<Image {...args} />
 </Story>
 
 <Story
-	name="Invalid Source"
-	let:args
 	args={{
 		src: './invalid.png'
 	}}
+	let:args
+	name="Invalid Source"
 >
 	<Image {...args} />
 </Story>

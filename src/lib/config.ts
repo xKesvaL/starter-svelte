@@ -1,19 +1,18 @@
-import type { Locale, Brand } from './typings/standard';
+import type { Brand, Locale } from './typings/standard';
 
 export const DEFAULT_LOCALE: Locale = 'en';
 
 export const BRAND = {
-	name: 'Starter',
-	url: 'https://starter.kesval.com',
 	author: {
 		name: 'Kesval',
 		url: 'https://kesval.com'
 	},
 	logo: {
-		light: '/images/logos/logo.png',
-		dark: '/images/logos/logo.png'
+		dark: '/images/logos/logo.png',
+		light: '/images/logos/logo.png'
 	},
-
+	name: 'Starter',
+	url: 'https://starter.kesval.com'
 } as const satisfies Brand;
 
 export const ROUTES = {

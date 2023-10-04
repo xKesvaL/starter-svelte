@@ -3,7 +3,7 @@
 	import IconCircleCheck from '$lib/icons/IconCircleCheck.svelte';
 	import IconInfoCircle from '$lib/icons/IconInfoCircle.svelte';
 
-	export let type: 'info' | 'danger' | 'success' = 'info';
+	export let type: 'danger' | 'info' | 'success' = 'info';
 </script>
 
 <div class="callout {type}">

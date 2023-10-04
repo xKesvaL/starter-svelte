@@ -1,4 +1,5 @@
 import type { ParamMatcher } from '@sveltejs/kit';
+
 import { locales as localesStore } from 'svelte-i18n';
 
 export const match: ParamMatcher = (param) => {

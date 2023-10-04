@@ -9,10 +9,10 @@ declare global {
 	}
 
 	interface ViewTransition {
-		updateCallbackDone: Promise<void>;
-		ready: Promise<void>;
 		finished: Promise<void>;
+		ready: Promise<void>;
 		skipTransition: () => void;
+		updateCallbackDone: Promise<void>;
 	}
 
 	interface Document {

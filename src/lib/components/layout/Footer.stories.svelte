@@ -1,9 +1,9 @@
 <script lang="ts">
+	import type { ArgTypes } from '@storybook/svelte';	import type { ComponentProps } from 'svelte';
+
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 
 	import Footer from './Footer.svelte';
-	import type { ArgTypes } from '@storybook/svelte';
-	import type { ComponentProps } from 'svelte';
 
 	type Story = ComponentProps<Footer>;
 
@@ -12,12 +12,12 @@
 	const argTypes: ArgTypes<Story> = {};
 </script>
 
-<Meta title="Components/Layout/Footer" component={Footer} args={metaArgs} {argTypes} />
+<Meta {argTypes} args={metaArgs} component={Footer} title="Components/Layout/Footer" />
 
-<Template args={metaArgs} {argTypes} let:args>
+<Template {argTypes} args={metaArgs} let:args>
 	<Footer {...args} />
 </Template>
 
-<Story name="Default" let:args>
+<Story let:args name="Default">
 	<Footer {...args} />
 </Story>

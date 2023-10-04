@@ -5,11 +5,11 @@
 	import Card from '$lib/components/base/CustomCard.svelte';
 	import { fade } from 'svelte/transition';
 
-	export let type: 'login' | 'register' | 'reauth' = 'login';
+	export let type: 'login' | 'reauth' | 'register' = 'login';
 </script>
 
 <Card scale={false}>
-	<div class="wrapper" transition:fade={{ duration: 300, delay: 300 }}>
+	<div class="wrapper" transition:fade={{ delay: 300, duration: 300 }}>
 		{#if type === 'login'}
 			<AuthLogin />
 		{:else if type === 'register'}
