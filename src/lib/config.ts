@@ -13,13 +13,7 @@ export const BRAND = {
 		light: '/images/logos/logo.png',
 		dark: '/images/logos/logo.png'
 	},
-	color: {
-		primary: '#6c20df',
-		secondary: '#df20b9',
-		info: '',
-		danger: '',
-		success: ''
-	}
+
 } as const satisfies Brand;
 
 export const ROUTES = {

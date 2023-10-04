@@ -5,6 +5,7 @@ export async function GET() {
 	const urls = Object.keys(files).map((file) => {
 		const url = file
 			.replace('/src/routes', '')
+			.replace('[[lang]]', '')
 			.replace('.svelte', '')
 			.replace('.md', '')
 			.replace('+page', '')
