@@ -37,7 +37,8 @@
 <style lang="scss">
 	.logo {
 		--logo-text-color: hsl(var(--base-600));
-		--logo-text-color-end: hsl(var(--base-900));
+		--logo-text-color-mid: hsl(var(--base-800));
+		--logo-text-color-end: hsl(var(--primary-900));
 		display: flex;
 		height: 100%;
 		width: auto;
@@ -74,7 +75,7 @@
 		&.animated {
 			svg {
 				.text {
-					stroke-width: 2;
+					stroke-width: 1;
 					animation: svg-text-stroke 2s;
 				}
 			}
@@ -100,7 +101,7 @@
 		}
 		60% {
 			fill: transparent;
-			stroke: var(--logo-text-color);
+			stroke: var(--logo-text-color-mid);
 		}
 		70% {
 			fill: transparent;
