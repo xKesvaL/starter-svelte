@@ -21,7 +21,7 @@
 					//    console.log('Checking for sw update')
 					//    r.update()
 					// }, 20000 /* 20s for testing purposes */)
-					console.log(`SW Registered: ${r}`);
+					console.log(`SW Registered: `, r);
 				},
 				onRegisterError(error) {
 					console.log('SW registration error', error);
@@ -29,12 +29,11 @@
 			});
 		}
 	});
-
-	$: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 </script>
 
 <svelte:head>
-	{@html webManifestLink}
+	<!-- Link to manifest -->
+	<link rel="manifest" href="/manifest.webmanifest" />
 </svelte:head>
 
 <slot />

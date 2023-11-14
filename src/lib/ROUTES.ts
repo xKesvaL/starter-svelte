@@ -11,6 +11,9 @@ export const PAGES = {
 }
 
 export const SERVERS = {
+  "assets_manifest.webmanifest": () =>  {
+    return ensurePrefix(`/manifest.webmanifest`)
+  },
   "assets_sitemap.xml": () =>  {
     return ensurePrefix(`/sitemap.xml`)
   }
@@ -59,7 +62,7 @@ const ensurePrefix = (str: string) => {
 */
 export type KIT_ROUTES = { 
   PAGES: { '_ROOT': never }
-  SERVERS: { 'assets_sitemap.xml': never }
+  SERVERS: { 'assets_manifest.webmanifest': never, 'assets_sitemap.xml': never }
   ACTIONS: {  }
   Storage_Params: {  }
 }
