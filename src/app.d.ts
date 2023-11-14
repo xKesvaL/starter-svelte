@@ -11,8 +11,14 @@ import '@total-typescript/ts-reset';
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
+		interface Locals {
+			lang: string;
+			uid: string;
+		}
+
+		interface PageData {
+			lang: string;
+		}
 		// interface Platform {}
 	}
 
