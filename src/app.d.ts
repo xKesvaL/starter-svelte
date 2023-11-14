@@ -1,24 +1,15 @@
+/// <reference types="vite-plugin-pwa/info" />
+/// <reference types="vite-plugin-pwa/svelte" />
+/// <reference types="vite-plugin-pwa/client" />
+
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
 	namespace App {
 		// interface Error {}
-		interface Locals {
-			uid: string;
-		}
+		// interface Locals {}
 		// interface PageData {}
 		// interface Platform {}
-	}
-
-	interface ViewTransition {
-		finished: Promise<void>;
-		ready: Promise<void>;
-		skipTransition: () => void;
-		updateCallbackDone: Promise<void>;
-	}
-
-	interface Document {
-		startViewTransition(updateCallback: () => Promise<void>): ViewTransition;
 	}
 }
 

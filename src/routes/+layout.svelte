@@ -1,35 +1,40 @@
-<script lang="ts">
-	import { navigating } from '$app/stores';
-	import { BRAND } from '$lib/config';
-	import '$lib/styles/main.scss';
-	import '$lib/styles/nprogress.scss';
+<script>
 	import '@kesval/design';
-	import nprogress from 'nprogress';
-	import { isLoading, locales } from 'svelte-i18n';
-	import { setupViewTransition } from 'sveltekit-view-transition';
-
 	import '../app.postcss';
-	import Loading from '$lib/containers/layout/Loading.svelte';
+	import '$lib/styles/fonts.scss';
+	import '$lib/styles/main.scss';
 
-	nprogress.configure({ easing: 'ease', minimum: 0.2, speed: 600 });
-	$: $navigating ? nprogress.start() : nprogress.done();
+	import { pwaInfo } from 'virtual:pwa-info';
+	import { setupViewTransition } from 'sveltekit-view-transition';
+	import { onMount } from 'svelte';
 
 	setupViewTransition();
+
+	onMount(async () => {
+		if (pwaInfo) {
+			const { registerSW } = await import('virtual:pwa-register');
+			registerSW({
+				immediate: true,
+				onRegistered(r) {
+					// uncomment following code if you want check for updates
+					// r && setInterval(() => {
+					//    console.log('Checking for sw update')
+					//    r.update()
+					// }, 20000 /* 20s for testing purposes */)
+					console.log(`SW Registered: ${r}`);
+				},
+				onRegisterError(error) {
+					console.log('SW registration error', error);
+				},
+			});
+		}
+	});
+
+	$: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 </script>
 
 <svelte:head>
-	<meta content={BRAND.author.name} name="copyright" />
-	<meta content={BRAND.name} name="og:site_name" />
-
-	<!-- Href langs -->
-	<link href={BRAND.url} hreflang="x-default" rel="alternate" />
-	{#each $locales as locale}
-		<link href={BRAND.url + '?lang=' + locale} hreflang={locale} rel="alternate" />
-	{/each}
+	{@html webManifestLink}
 </svelte:head>
 
-{#if $isLoading}
-	<Loading />
-{:else}
-	<slot />
-{/if}
+<slot />

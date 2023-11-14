@@ -1,5 +1,6 @@
 export interface Brand {
 	author: BrandAuthor;
+	color: BrandColors;
 	logo: BrandLogo;
 	name: string;
 	url: string;
@@ -15,9 +16,10 @@ export interface BrandAuthor {
 	url: string;
 }
 
-export interface Route {
-	path: string;
-}
+
+export type BrandColors = Record<BrandColor, string>;
+
+export type BrandColor = 'primary' | 'secondary';
 
 export type ThemeColor =
 	| 'accent'
@@ -27,9 +29,8 @@ export type ThemeColor =
 	| 'info'
 	| 'muted'
 	| 'popover'
-	| 'primary'
-	| 'secondary'
-	| 'success';
+	| 'success'
+	| BrandColor;
 
 // eslint-disable-next-line perfectionist/sort-union-types
 export type ThemeSize = 'sm' | 'md' | 'lg';
