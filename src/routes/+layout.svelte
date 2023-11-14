@@ -62,8 +62,6 @@
 	</script>
 </svelte:head>
 
-<slot />
-
 {#if $isLoading}
 	...
 {:else}

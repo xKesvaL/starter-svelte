@@ -5,8 +5,8 @@
  */
 
 export const PAGES = {
-  "_ROOT": () =>  {
-    return ensurePrefix(`/`)
+  "lang_lg": (params: {lang?: string | number}= {}) =>  {
+    return ensurePrefix(`${params?.lang ? `/${params?.lang}`: ''}`)
   }
 }
 
@@ -61,10 +61,10 @@ const ensurePrefix = (str: string) => {
 * ```
 */
 export type KIT_ROUTES = { 
-  PAGES: { '_ROOT': never }
+  PAGES: { 'lang_lg': 'lang' }
   SERVERS: { 'assets_manifest.webmanifest': never, 'assets_sitemap.xml': never }
   ACTIONS: {  }
-  Storage_Params: {  }
+  Storage_Params: { lang: never }
 }
 
 import { browser } from '$app/environment'
