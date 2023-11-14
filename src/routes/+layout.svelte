@@ -4,36 +4,52 @@
 	import '$lib/styles/fonts.scss';
 	import '$lib/styles/main.scss';
 
-	import { pwaInfo } from 'virtual:pwa-info';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { onMount } from 'svelte';
 
 	setupViewTransition();
-
-	onMount(async () => {
-		if (pwaInfo) {
-			const { registerSW } = await import('virtual:pwa-register');
-			registerSW({
-				immediate: true,
-				onRegistered(r) {
-					// uncomment following code if you want check for updates
-					// r && setInterval(() => {
-					//    console.log('Checking for sw update')
-					//    r.update()
-					// }, 20000 /* 20s for testing purposes */)
-					console.log(`SW Registered: `, r);
-				},
-				onRegisterError(error) {
-					console.log('SW registration error', error);
-				},
-			});
-		}
-	});
 </script>
 
 <svelte:head>
-	<!-- Link to manifest -->
+	<!-- Manifest -->
 	<link rel="manifest" href="/manifest.webmanifest" />
+
+	<!-- Preload fonts -->
+	<link
+		rel="preload"
+		href="/fonts/Inter-300-Lat.woff2"
+		as="font"
+		crossorigin="anonymous"
+		type="font/woff2"
+	/>
+	<link
+		rel="preload"
+		href="/fonts/Inter-400-Lat.woff2"
+		as="font"
+		crossorigin="anonymous"
+		type="font/woff2"
+	/>
+	<link
+		rel="preload"
+		href="/fonts/Inter-700-Lat.woff2"
+		as="font"
+		crossorigin="anonymous"
+		type="font/woff2"
+	/>
+	<link
+		rel="preload"
+		href="/fonts/Poppins-900-Lat.woff2"
+		as="font"
+		crossorigin="anonymous"
+		type="font/woff2"
+	/>
+
+	<!-- Theme -->
+	<!-- Theme -->
+	<script>
+		const theme = localStorage.getItem('theme') || 'auto';
+		document.firstElementChild?.setAttribute('data-theme', theme);
+	</script>
 </svelte:head>
 
 <slot />
