@@ -1,21 +1,10 @@
+import type { KIT_ROUTES } from '$lib/ROUTES';
+
+import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { kitRoutes } from 'vite-plugin-kit-routes';
 
 export default defineConfig({
-	css: {
-		preprocessorOptions: {
-			scss: {
-				additionalData: '@use "node_modules/@kesval/design/scss/utilities" as *;'
-			}
-		}
-	},
-	plugins: [sveltekit()],
-
-	resolve: {
-		alias: {
-			$design: resolve('./node_modules/@kesval/design/scss/utilities'),
-			$routes: resolve('./src/routes')
-		}
-	}
+	plugins: [sveltekit(), enhancedImages(), kitRoutes<KIT_ROUTES>()],
 });
